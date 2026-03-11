@@ -46,3 +46,13 @@ def test_create_post2():
     assert response.status_code == 201
     assert data["name"] == "dulcie"
     assert data["body"] == "she love caden"
+
+
+import pytest
+
+@pytest.mark.parametrize("post_id", [1, 2, 3])
+
+def test_get_multiple_posts(post_id):
+    response = requests.get(f"{BASE_URL}/posts/{post_id}")
+    assert response.status_code == 200
+    assert response.json()["id"] == post_id
