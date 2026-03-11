@@ -32,6 +32,13 @@ def test_get_posts_list():
     assert "company" in data[3]
     assert "street" in data[2]["address"]
 
+def test_get_post3():
+    response = requests.get(f"{BASE_URL}/users/9999")
+    data = response.json()
+    assert response.status_code == 404
+    assert data == {}
+
+
 def test_create_post():
     new_post = {"title":"测试内容","body":"这是内容","userId":1}
     response = requests.post(f"{BASE_URL}/posts", json=new_post)
