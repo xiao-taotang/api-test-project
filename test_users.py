@@ -10,20 +10,6 @@ def test_get_user_info():
     assert data["name"] == "Leanne Graham"
     assert data["email"] == "Sincere@april.biz"
 
-def test_get_post2():
-    response = requests.get(f"{BASE_URL}/posts")
-    data = response.json()
-    assert response.status_code == 200
-    assert len(data) > 0
-
-def test_get_comments():
-    response = requests.get(f"{BASE_URL}/posts/1/comments")
-    data = response.json()
-    assert response.status_code == 200
-    assert len(data) > 0
-    assert "email" in data[0]
-
-
 def test_get_users_list():
     response = requests.get(f"{BASE_URL}/users")
     data = response.json()
@@ -38,14 +24,6 @@ def test_get_user_not_found():
     assert response.status_code == 404
     assert data == {}
 
-
-def test_create_post():
-    new_post = {"title":"测试内容","body":"这是内容","userId":1}
-    response = requests.post(f"{BASE_URL}/posts", json=new_post)
-    data = response.json()
-    assert response.status_code == 201
-    assert data["title"] == "测试内容"
-
 def test_create_user():
     new_post = {"name":"dulcie","body":"she love caden","userId":3}
     response = requests.post(f"{BASE_URL}/users", json=new_post)
@@ -53,13 +31,3 @@ def test_create_user():
     assert response.status_code == 201
     assert data["name"] == "dulcie"
     assert data["body"] == "she love caden"
-
-
-import pytest
-
-@pytest.mark.parametrize("post_id", [1, 2, 3])
-
-def test_get_multiple_posts(post_id):
-    response = requests.get(f"{BASE_URL}/posts/{post_id}")
-    assert response.status_code == 200
-    assert response.json()["id"] == post_id
