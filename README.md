@@ -12,13 +12,13 @@
 
 | 用例 | 测试内容 | 类型 |
 |------|----------|------|
-| test_get_post1 | 获取用户信息，验证id/name/email字段 | 正向 |
-| test_get_post2 | 获取文章列表，验证返回数据不为空 | 正向 |
+| test_get_user_info | 获取用户信息，验证id/name/email字段 | 正向 |
+| test_get_posts_list | 获取文章列表，验证返回数据不为空 | 正向 |
 | test_get_comments | 获取文章评论，验证email字段存在 | 正向 |
-| test_get_posts_list | 获取用户列表，验证嵌套字段company/address | 正向 |
-| test_get_post3 | 获取不存在的用户(id=9999)，验证返回404及空数据 | 异常 |
+| test_get_users_list | 获取用户列表，验证嵌套字段company/address | 正向 |
+| test_get_user_not_found | 获取不存在的用户(id=9999)，验证返回404及空数据 | 异常 |
 | test_create_post | POST创建文章，验证返回状态码201及字段 | 正向 |
-| test_create_post2 | POST创建用户，验证返回数据正确 | 正向 |
+| test_create_user | POST创建用户，验证返回数据正确 | 正向 |
 | test_get_multiple_posts | 参数化测试，用id=1/2/3分别获取文章 | 参数化 |
 
 ## 运行方式
