@@ -2,7 +2,7 @@ import requests
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
-def test_get_post1():
+def test_get_user_info():
     response = requests.get(f"{BASE_URL}/users/1")
     data = response.json()
     assert response.status_code == 200
@@ -24,7 +24,7 @@ def test_get_comments():
     assert "email" in data[0]
 
 
-def test_get_posts_list():
+def test_get_users_list():
     response = requests.get(f"{BASE_URL}/users")
     data = response.json()
     assert response.status_code == 200
@@ -32,7 +32,7 @@ def test_get_posts_list():
     assert "company" in data[3]
     assert "street" in data[2]["address"]
 
-def test_get_post3():
+def test_get_user_not_found():
     response = requests.get(f"{BASE_URL}/users/9999")
     data = response.json()
     assert response.status_code == 404
@@ -46,7 +46,7 @@ def test_create_post():
     assert response.status_code == 201
     assert data["title"] == "测试内容"
 
-def test_create_post2():
+def test_create_user():
     new_post = {"name":"dulcie","body":"she love caden","userId":3}
     response = requests.post(f"{BASE_URL}/users", json=new_post)
     data = response.json()
