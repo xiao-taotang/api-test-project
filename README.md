@@ -7,6 +7,7 @@
 - pytest
 - requests
 - pytest-html（测试报告）
+- 数据驱动测试（Data-Driven Testing）
 
 ## 测试用例
 
@@ -20,6 +21,7 @@
 | test_create_post | POST创建文章，验证返回状态码201及字段 | 正向 |
 | test_create_user | POST创建用户，验证返回数据正确 | 正向 |
 | test_get_multiple_posts | 参数化测试，用id=1/2/3分别获取文章 | 参数化 |
+| test_create_post(数据驱动) | POST创建文章，覆盖正常内容/多用户/特殊符号边界值，共3组数据 | 数据驱动参数化 |
 
 ## 运行方式
 ```
