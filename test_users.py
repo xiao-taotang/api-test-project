@@ -1,32 +1,30 @@
 import requests
 
-BASE_URL = "https://jsonplaceholder.typicode.com"
-
-def test_get_user_info():
-    response = requests.get(f"{BASE_URL}/users/1")
+def test_get_user_info(base_url):
+    response = requests.get(f"{base_url}/users/1")
     data = response.json()
     assert response.status_code == 200
     assert data["id"] == 1
     assert data["name"] == "Leanne Graham"
     assert data["email"] == "Sincere@april.biz"
 
-def test_get_users_list():
-    response = requests.get(f"{BASE_URL}/users")
+def test_get_users_list(base_url):
+    response = requests.get(f"{base_url}/users")
     data = response.json()
     assert response.status_code == 200
     assert data[2]["id"] == 3
     assert "company" in data[3]
     assert "street" in data[2]["address"]
 
-def test_get_user_not_found():
-    response = requests.get(f"{BASE_URL}/users/9999")
+def test_get_user_not_found(base_url):
+    response = requests.get(f"{base_url}/users/9999")
     data = response.json()
     assert response.status_code == 404
     assert data == {}
 
-def test_create_user():
+def test_create_user(base_url):
     new_post = {"name":"dulcie","body":"she love caden","userId":3}
-    response = requests.post(f"{BASE_URL}/users", json=new_post)
+    response = requests.post(f"{base_url}/users", json=new_post)
     data = response.json()
     assert response.status_code == 201
     assert data["name"] == "dulcie"

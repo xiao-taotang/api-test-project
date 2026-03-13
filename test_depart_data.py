@@ -1,8 +1,6 @@
 import pytest
 import requests
 
-BASE_URL = "https://jsonplaceholder.typicode.com"
-
 # 第一步：把测试数据抽离出来，存放在一个列表里
 # 每一项包含了：请求体、预期状态码、预期标题
 test_data = [
@@ -15,9 +13,9 @@ test_data = [
 # 第二步：用 parametrize 装饰器把数据传递给下方的测试函数
 @pytest.mark.parametrize("payload, expected_status, expected_title", test_data)
 
-def test_create_post(payload, expected_status, expected_title):
+def test_create_post(payload, expected_status, expected_title,base_url):
     # 第三步：原本写死的值，全部替换成传入的参数变量
-    response = requests.post(f"{BASE_URL}/posts", json=payload)
+    response = requests.post(f"{base_url}/posts", json=payload)
     data = response.json()
 
     assert response.status_code == expected_status
