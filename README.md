@@ -16,18 +16,18 @@
 
 ## 测试用例
 
-| 用例 | 测试内容 | 类型 |
-|------|----------|------|
-| test_get_user_info | 获取用户信息，验证id、name和email字段 | 正向 |
-| test_get_posts_list | 获取文章列表，验证返回数据不为空 | 正向 |
-| test_get_comments | 获取文章评论，验证email字段存在 | 正向 |
-| test_get_users_list | 获取用户列表，验证嵌套字段company和address | 正向 |
-| test_get_user_not_found | 获取不存在的用户id为9999，验证返回404及空数据 | 异常 |
-| test_create_post | POST创建文章，验证返回状态码201及字段 | 正向 |
-| test_create_user | POST创建用户，验证返回数据正确 | 正向 |
-| test_get_multiple_posts | 参数化测试，用不同id分别获取文章 | 参数化 |
+| 用例                           | 测试内容 | 类型 |
+|------------------------------|----------|------|
+| test_get_user_info           | 获取用户信息，验证id、name和email字段 | 正向 |
+| test_get_posts_list          | 获取文章列表，验证返回数据不为空 | 正向 |
+| test_get_comments            | 获取文章评论，验证email字段存在 | 正向 |
+| test_get_users_list          | 获取用户列表，验证嵌套字段company和address | 正向 |
+| test_get_user_not_found      | 获取不存在的用户id为9999，验证返回404及空数据 | 异常 |
+| test_create_post             | POST创建文章，验证返回状态码201及字段 | 正向 |
+| test_create_user             | POST创建用户，验证返回数据正确 | 正向 |
+| test_get_multiple_posts      | 参数化测试，用不同id分别获取文章 | 参数化 |
 | test_create_post_data_driven | POST创建文章，覆盖正常内容、多用户、特殊符号边界值共3组数据 | 数据驱动 |
-| test_database_assertion | 结合SQL语句，验证接口请求后底层数据库的数据落库准确性 | 数据库断言 |
+| test_db                      | 结合SQL语句，验证接口请求后底层数据库的数据落库准确性 | 数据库断言 |
 
 ## 运行方式
 pip install requests pytest pytest-html 
