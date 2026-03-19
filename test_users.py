@@ -16,6 +16,13 @@ def test_get_users_list(base_url):
     assert "company" in data[3]
     assert "street" in data[2]["address"]
 
+def test_get_comments(base_url):
+    response = requests.get(f"{base_url}/posts/1/comments")
+    data = response.json()
+    assert response.status_code == 200
+    assert len(data) > 0
+    assert "email" in data[0]
+
 def test_get_user_not_found(base_url):
     response = requests.get(f"{base_url}/users/9999")
     data = response.json()
