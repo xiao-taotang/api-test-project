@@ -27,7 +27,7 @@ def test_get_multiple_posts(post_id, base_url):
 test_data = [
     ({"title": "测试内容1", "body": "这是内容1", "userId": 1}, 201, "测试内容1"),
     ({"title": "测试内容2", "body": "这是内容2", "userId": 2}, 201, "测试内容2"),
-    ({"title": "特殊符号#￥%", "body": "边界测试", "userId": 3}, 201, "特殊符号#￥%")
+    ({"title": "特殊符号#￥%", "body": "特殊符号", "userId": 3}, 201, "特殊符号#￥%")
 ]
 
 
