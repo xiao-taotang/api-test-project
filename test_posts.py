@@ -41,3 +41,16 @@ def test_create_post_data_driven(payload, expected_status, expected_title,base_u
 
     assert response.status_code == expected_status
     assert data.get("title") == expected_title
+
+
+def test_update_post(base_url):
+    updated = {"title": "修改后的标题", "body": "修改后的内容", "userId": 1}
+    response = requests.put(f"{base_url}/posts/1", json=updated)
+    data = response.json()
+    assert response.status_code == 200
+    assert data["title"] == "修改后的标题"
+    assert data["body"] == "修改后的内容"
+
+def test_delete_post(base_url):
+    response = requests.delete(f"{base_url}/posts/1")
+    assert response.status_code == 200
